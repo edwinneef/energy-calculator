@@ -1,0 +1,9 @@
+.c-form-element {
+  &:not(:first-child) {
+    margin-top: 2.4rem;
+  }
+}
+
+.form-element__label {
+  margin-bottom: 0.8rem;
+}

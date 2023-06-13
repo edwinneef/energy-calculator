@@ -1,0 +1,17 @@
+.c-input {
+  height: 5rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border: 2px solid var(--color-grey-50);
+  border-radius: 0.4rem;
+  outline: none;
+  transition: border 300ms ease;
+  background: var(--color-grey-20);
+  color: var(--color-grey-50);
+  font-size: clamp-calc(320px, 1800px, 15px, 17px);
+
+  &:focus {
+    border-color: var(--color-grey-80);
+  }
+}

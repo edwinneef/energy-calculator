@@ -1,0 +1,8 @@
+h1, h2, h3 {
+  font-size: clamp-calc(320px, 1800px, 32px, 64px);
+  font-weight: 400;
+
+  span {
+    font-weight: 700;
+  }
+}

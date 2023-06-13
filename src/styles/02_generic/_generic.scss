@@ -1,0 +1,20 @@
+html {
+  font-size: 10px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-nunito);
+  background-color: var(--color-grey-10);
+  color: var(--color-grey-80);
+  font-size: clamp-calc(320px, 1800px, 14px, 18px);
+}
+
+*,
+*:before,
+*:after {
+	border: 0 solid transparent;
+	box-sizing: border-box;
+}
