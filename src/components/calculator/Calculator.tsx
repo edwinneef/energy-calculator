@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Input, DateInput, Select } from "../index.ts";
 import { FormStateType, initialFormState, minutesOptionsData, hoursOptionsData } from "../../data/form.ts";
-import { calculateCosts } from "../../utils/calculator.ts";
+import { calculateCosts, formatResult, getTotalDurationInMinutes } from "../../utils/calculator.ts";
 
-function Calculator() {
+const Calculator : React.FC = () => {
   const [result, setResult] = useState<number>(0);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -20,17 +20,27 @@ function Calculator() {
     })
   }
 
+  const isFormValid = (formState: FormStateType) => {
+    return (
+      formState.startDate != null &&
+      formState.duration != null &&
+      formState.consumption != null &&
+      formState.consumption > 0 &&
+      getTotalDurationInMinutes(formState.duration) >= 15
+    );
+  };
+
   const calculateResult = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
 
-    if (!formState.startDate || !formState.duration || !formState.consumption) {
+    if (!isFormValid(formState)) {
       setError(true);
       return;
     }
 
     const { startDate, duration, consumption } = formState;
-    const totalMinutes = (duration?.hours || 0) * 60 + (duration?.minutes || 0);
+    const totalMinutes = getTotalDurationInMinutes(duration);
 
     setResult(calculateCosts(consumption, startDate, totalMinutes));
     setError(false);
@@ -56,7 +66,7 @@ function Calculator() {
             <div className="calculator__result-inner">
               <span className="calculator__result-title">Result:</span>
               <div className="calculator__result-price">
-                <span>€</span>{result.toFixed(2)}
+                <span>€</span>{formatResult(result)}
               </div>
             </div>
             <button className="calculator__button" type="submit">{result > 0 ? 'Re-calculate cost' : 'Calculate cost'}</button>

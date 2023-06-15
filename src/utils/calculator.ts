@@ -1,3 +1,4 @@
+import { FormStateType } from '../data/form';
 import { priceTable } from '../data/prices';
 
 export const formatDate = (date?: Date): string => {
@@ -18,7 +19,10 @@ export const formatDate = (date?: Date): string => {
   return formattedDate;
 }
 
-export const calculateCosts = (consumption: number, startDate: Date, duration: number): number => {
+export const calculateCosts = (consumption: number | null, startDate?: Date, duration?: number): number => {
+  if (!consumption || !startDate || !duration) {
+    return 0;
+  }
   const startTime = startDate;
   const endTime = new Date(startTime.getTime() + (duration * 60 * 1000));
   let price = 0;
@@ -42,3 +46,12 @@ export const calculateCosts = (consumption: number, startDate: Date, duration: n
 
   return price;
 }
+
+
+export const getTotalDurationInMinutes = (duration: FormStateType["duration"]) : number => {
+  return (duration?.hours || 0) * 60 + (duration?.minutes || 0);
+};
+
+export const formatResult = (result: number) : string => {
+  return `${result.toFixed(2)}`;
+};
