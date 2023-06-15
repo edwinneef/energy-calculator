@@ -1,17 +1,23 @@
-.c-input {
+.c-input,
+.react-datepicker__input-container input,
+.c-select {
   height: 5rem;
   width: 100%;
   padding: 1rem 2rem;
   font-size: 1.6rem;
-  border: 2px solid var(--color-grey-50);
+  border: 3px solid var(--color-grey-80);
   border-radius: 0.4rem;
   outline: none;
   transition: border 300ms ease;
-  background: var(--color-grey-20);
+  background: var(--color-grey-90);
   color: var(--color-grey-50);
   font-size: clamp-calc(320px, 1800px, 15px, 17px);
 
   &:focus {
-    border-color: var(--color-grey-80);
+    border-color: var(--color-pink-70);
+  }
+
+  .c-form-element--error & {
+    border-color: var(--color-pink-40);
   }
 }

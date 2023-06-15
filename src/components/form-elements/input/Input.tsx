@@ -1,17 +1,19 @@
 import FormElement from "../form-element/FormElement";
 
 export interface InputProps {
-  type: 'string' | 'number';
   name: string;
   label?: string;
   placeholder?: string;
+  value?: string;
+  error?: boolean;
+  setValue: (value: string) => void;
 }
 
 function Input(props : InputProps) {
 
   return (
     <FormElement {...props}>
-      <input className="c-input" {...props} />
+      <input onChange={(e) => props.setValue(e.target.value)} type="number" min={1} value={props.value} className="c-input" name={props.name} id={props.name} />
     </FormElement>
   )
 }

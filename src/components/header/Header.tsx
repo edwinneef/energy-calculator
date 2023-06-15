@@ -1,7 +1,4 @@
-
-export interface HeaderProps {}
-
-function Header(props: HeaderProps) {
+function Header() {
   return (
     <header className="c-header">
       <div className="container">

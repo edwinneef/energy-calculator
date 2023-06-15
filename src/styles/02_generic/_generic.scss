@@ -7,9 +7,11 @@ html {
 
 body {
   font-family: var(--font-nunito);
-  background-color: var(--color-grey-10);
+  line-height: 1.66;
+  background-color: var(--color-grey-20);
   color: var(--color-grey-80);
   font-size: clamp-calc(320px, 1800px, 14px, 18px);
+  transition: background 350ms ease-out;
 }
 
 *,

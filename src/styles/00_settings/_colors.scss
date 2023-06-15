@@ -1,4 +1,3 @@
-// https://coolors.co/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529
 :root {
   --color-grey-100: #F8F9FA;
   --color-grey-90: #E9ECEF;
@@ -10,4 +9,15 @@
   --color-grey-30: #343A40;
   --color-grey-20: #212529;
   --color-grey-10: #112529;
+  --color-pink-70: #{lighten(#ee3968,24%)};
+  --color-pink-60: #{lighten(#ee3968, 12%)};
+  --color-pink-50: #ee3968;
+  --color-pink-40: #{darken(#ee3968, 12%)};
+  --color-pink-30: #{darken(#ee3968, 24%)};
+
+  --color-orange-70: #{lighten(#f57d20, 24%)};
+  --color-orange-60: #{lighten(#f57d20, 12%)};
+  --color-orange-50: #f57d20;
+  --color-orange-40: #{darken(#f57d20, 6%)};
+  --color-orange-30: #{darken(#f57d20, 12%)};
 }

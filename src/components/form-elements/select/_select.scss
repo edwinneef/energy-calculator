@@ -1,0 +1,35 @@
+.c-select select {
+  appearance: none;
+  background: transparent;
+  padding-right: 25px;
+  height: 3rem;
+  width: 100%;
+  line-height: 1;
+}
+
+.c-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+
+  &::after {
+    content: "";
+    border: solid var(--color-grey-50);
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    pointer-events: none;
+  }
+
+  &--focus {
+    border-color: var(--color-pink-70);
+  }
+}
