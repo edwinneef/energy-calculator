@@ -9,7 +9,7 @@ export interface InputProps {
   setValue: (value: string) => void;
 }
 
-function Input(props : InputProps) {
+function Input(props: InputProps) {
 
   return (
     <FormElement {...props}>

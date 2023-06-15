@@ -11,10 +11,10 @@ export interface DateInputProps {
   error?: boolean;
 }
 
-function DateInput(props : DateInputProps) {
+function DateInput(props: DateInputProps) {
   return (
     <FormElement {...props}>
-      <DatePicker name={props.name} id={props.name} placeholderText={props.label} onChange={(e) => e ? props.setValue(e) : null} value={formatDate(props.value)} timeIntervals={5} showTimeSelect />
+      <DatePicker name={props.name} id={props.name} placeholderText={props.label} timeFormat="HH:mm" onChange={(e) => e ? props.setValue(e) : null} value={formatDate(props.value)} timeIntervals={5} showTimeSelect />
     </FormElement>
   )
 }

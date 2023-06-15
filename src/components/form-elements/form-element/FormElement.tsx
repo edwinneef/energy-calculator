@@ -17,9 +17,9 @@ function FormElement(props: FormElementProps) {
       <div className="form-element__wrapper">
         {props.children}
       </div>
-      { props.error ? <div className="form-element__error">
+      {props.error ? <div className="form-element__error">
         <span>This field is required.</span>
-      </div> : null }
+      </div> : null}
     </div>
   )
 }

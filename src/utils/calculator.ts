@@ -1,11 +1,11 @@
 import { priceTable } from '../data/prices';
 
-export const formatDate = (date? : Date) : string => {
+export const formatDate = (date?: Date): string => {
   if (!date) {
     return '';
   }
 
-  const options : Intl.DateTimeFormatOptions = {
+  const options: Intl.DateTimeFormatOptions = {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
@@ -18,9 +18,9 @@ export const formatDate = (date? : Date) : string => {
   return formattedDate;
 }
 
-export const calculateCosts = (consumption : number, startDate : Date, duration : number) : number => {
+export const calculateCosts = (consumption: number, startDate: Date, duration: number): number => {
   const startTime = startDate;
-  const endTime = new Date(startTime.getTime() + (duration * 60* 1000));
+  const endTime = new Date(startTime.getTime() + (duration * 60 * 1000));
   let price = 0;
 
   const minutes = Math.floor((endTime.getTime() - startTime.getTime()) / (1000 * 60));
@@ -32,13 +32,11 @@ export const calculateCosts = (consumption : number, startDate : Date, duration 
     const nightHours = [23, 0, 1, 2, 3, 4, 5, 6];
     const dayType = (intervalTime.getDay() == 6) || (intervalTime.getDay() == 0) ? 'weekend' : 'workday';
 
-    console.log(nightHours.includes(intervalTime.getHours()));
-    console.log(intervalTime.getDay(), dayType);
-
     if (nightHours.includes(intervalTime.getHours())) {
-      price += priceTable[dayType].night * consumption;
-    } else {
-      price += priceTable[dayType].day * consumption;
+      price += (priceTable[dayType].night * consumption);
+    }
+    if (!nightHours.includes(intervalTime.getHours())) {
+      price += (priceTable[dayType].day * consumption);
     }
   }
 

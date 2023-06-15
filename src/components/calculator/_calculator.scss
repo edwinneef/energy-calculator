@@ -6,7 +6,7 @@
   max-width: calc(100% - 6rem);
   margin: 0 auto;
   position: relative;
-  box-shadow: 0 0.8rem 1.6rem rgba(0,0,0,0.1), 0 0.3rem 0.9rem rgba(0,0,0,0.2);
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.1), 0 0.3rem 0.9rem rgba(0, 0, 0, 0.2);
 
   &--result {
     .calculator__result {
@@ -20,7 +20,7 @@
   background: var(--color-orange-40);
   padding: 1.5rem 3rem;
   color: var(--color-grey-100);
-  box-shadow: 0 0.8rem 1.6rem rgba(0,0,0,0.1);
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.1);
 }
 
 .calculator__inner {
@@ -79,7 +79,8 @@
   cursor: pointer;
   transition: background 150ms;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background: var(--color-grey-20);
   }
 }
