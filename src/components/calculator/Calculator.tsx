@@ -61,7 +61,7 @@ const Calculator : React.FC = () => {
             <Select name="duration-minutes" value={formState.duration?.minutes?.toString()} setValue={(e) => handleChange(e, 'duration-minutes')} label="Duration minutes" options={minutesOptionsData} error={submitted && !formState.duration} />
             {submitted && !formState.duration?.hours && !formState.duration?.minutes ? <div className="form-element__error"><span>Duration must be over 15 minutes</span></div> : null}
           </div>
-          <Input name="consumption" value={formState.consumption?.toString()} setValue={(e) => handleChange(e, 'consumption')} placeholder="123" label="Expected consumption in KW" error={submitted && (!formState.consumption || formState.consumption == 0)} />
+          <Input name="consumption" value={formState.consumption?.toString()} setValue={(e) => handleChange(e, 'consumption')} placeholder="123" label="Expected consumption in KWh" error={submitted && (!formState.consumption || formState.consumption == 0)} />
           <div className="calculator__result">
             <div className="calculator__result-inner">
               <span className="calculator__result-title">Result:</span>

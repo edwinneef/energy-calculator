@@ -87,18 +87,38 @@
 
 .calculator__row {
   display: flex;
-  position: relative;
-  width: calc(100% + 2rem);
-  left: -1rem;
   flex-wrap: wrap;
 
   .c-form-element {
-    flex: 1 0 0;
-    padding: 0 1rem;
+    flex: 0 0 100%;
   }
 
   .form-element__error {
     flex: 0 0 calc(100% + 2rem);
     padding: 0 1rem;
+  }
+
+  @include for-size(phone-only) {
+    .c-form-element {
+      &:not(:first-child) {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  @include for-size(tablet-portrait-up) {
+    width: calc(100% + 2rem);
+    position: relative;
+    left: -1rem;
+
+    .c-form-element {
+      flex: 1 0 0;
+      padding: 0 1rem;
+    }
+
+    .form-element__error {
+      flex: 0 0 calc(100% + 2rem);
+      padding: 0 1rem;
+    }
   }
 }
