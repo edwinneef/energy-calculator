@@ -54,7 +54,7 @@ const Calculator : React.FC = () => {
         <h2>Calculate energy cost</h2>
       </header>
       <div className="calculator__inner">
-        <form className="c-form flow" onSubmit={(e) => calculateResult(e)}>
+        <form className="c-form flow" onSubmit={(e) => calculateResult(e)} autoComplete="off">
           <DateInput name="start-date" value={formState.startDate} setValue={(e) => handleChange(e, 'startDate')} label="Starting date and time" error={submitted && formState.startDate == undefined} />
           <div className="calculator__row">
             <Select name="duration-hours" value={formState.duration?.hours?.toString()} setValue={(e) => handleChange(e, 'duration-hours')} label="Duration hours" options={hoursOptionsData} error={submitted && !formState.duration} />
