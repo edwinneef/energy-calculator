@@ -1,4 +1,4 @@
-# Weave Assessment
+# Energy Calculator
 
 ## 1. Introduction 
 
