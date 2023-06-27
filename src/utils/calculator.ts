@@ -33,15 +33,10 @@ export const calculateCosts = (consumption: number | null, startDate?: Date, dur
 
   for (let i = 0; i < intervals; i++) {
     const intervalTime = new Date(startTime.getTime() + i * 15 * 60 * 1000);
-    const nightHours = [23, 0, 1, 2, 3, 4, 5, 6];
+    const hours = intervalTime.getHours();
     const dayType = (intervalTime.getDay() == 6) || (intervalTime.getDay() == 0) ? 'weekend' : 'workday';
 
-    if (nightHours.includes(intervalTime.getHours())) {
-      price += (priceTable[dayType].night * consumption);
-    }
-    if (!nightHours.includes(intervalTime.getHours())) {
-      price += (priceTable[dayType].day * consumption);
-    }
+    price += (hours == 23 || hours < 7) ? (priceTable[dayType].night * consumption) : (priceTable[dayType].day * consumption);
   }
 
   return price;

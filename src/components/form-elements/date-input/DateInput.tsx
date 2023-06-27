@@ -12,9 +12,17 @@ export interface DateInputProps {
 }
 
 function DateInput(props: DateInputProps) {
+
+  const handleChange = (value: Date | null) => {
+  console.log(value);
+  if (!value) return;
+
+    props.setValue(new Date(value));
+  }
+
   return (
     <FormElement {...props}>
-      <DatePicker name={props.name} id={props.name} placeholderText={props.label} timeFormat="HH:mm" onChange={(e) => e ? props.setValue(e) : null} value={formatDate(props.value)} timeIntervals={5} showTimeSelect />
+      <DatePicker name={props.name} id={props.name} placeholderText={props.label} timeFormat="HH:mm" onChange={handleChange} value={formatDate(props.value)} selected={props.value} timeIntervals={5} showTimeSelect />
     </FormElement>
   )
 }
