@@ -12,11 +12,8 @@ export interface DateInputProps {
 }
 
 function DateInput(props: DateInputProps) {
-
   const handleChange = (value: Date | null) => {
-  console.log(value);
-  if (!value) return;
-
+    if (!value) return;
     props.setValue(new Date(value));
   }
 
